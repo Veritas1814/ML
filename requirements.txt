@@ -1,0 +1,11 @@
+torch
+torchvision
+numpy
+pandas
+shapely
+rasterio
+matplotlib
+opencv-python
+pyyaml
+tqdm
+albumentations
