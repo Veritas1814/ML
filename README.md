@@ -11,9 +11,9 @@ To develop a neural network capable of recognizing and reconstructing room geome
 ---
 
 ## 📊 Expected Results
-- Accurate 3D reconstruction of walls, rooms, and doors from 2D plans.  
-- Fully automated import of generated structures into Minecraft.  
-- Visual fidelity between input plans and in-game structures.  
-- Demonstration of AI–Minecraft integration for educational and creative use.
+- Accurate 3D reconstruction of walls, rooms, and doors from 2D plans  
+- Fully automated import of generated structures into Minecraft 
+- Visual accuracy between input plans and in-game structure
+- Demonstration of AI–Minecraft integration for educational and creative use
 
 ---
