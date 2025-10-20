@@ -8,18 +8,15 @@ sys.path.append(parent_dir)
 from train_model import train_model
 from data_loader.floorplan_dataset import FloorplanDataset
 
-# Project root and dataset paths
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 image_dir = os.path.join(project_root, 'data', 'processed', 'images')
 mask_dir = os.path.join(project_root, 'data', 'processed', 'masks')
 
-# Verify paths
 if not os.path.exists(image_dir):
     raise FileNotFoundError(f"Image directory not found: {image_dir}")
 if not os.path.exists(mask_dir):
     raise FileNotFoundError(f"Mask directory not found: {mask_dir}")
 
-# CUDA setup
 if torch.cuda.is_available():
     torch.cuda.empty_cache()
     device = torch.device('cuda')
@@ -27,13 +24,11 @@ if torch.cuda.is_available():
 else:
     device = torch.device('cpu')
 
-# --- GPU memory-based configuration ---
 if device.type == 'cuda':
     total_gb = torch.cuda.get_device_properties(0).total_memory / (1024 ** 3)
     free_gb = torch.cuda.mem_get_info()[0] / (1024 ** 3)
     print(f"Total GPU memory: {total_gb:.1f} GB, Free: {free_gb:.1f} GB")
 
-    # Optimized balance for full-size images on 4 GB GPU
     batch_size = 2
     gradient_accumulation_steps = 2
     num_epochs = 5
@@ -63,3 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
