@@ -14,7 +14,6 @@ def train_model(train_dataset, val_dataset, num_classes, num_epochs=30,
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
-    # --- Optimized DataLoader ---
     num_workers = min(4, os.cpu_count() or 1)
     train_loader = DataLoader(
         train_dataset, batch_size=batch_size, shuffle=True,
@@ -70,3 +69,4 @@ def train_model(train_dataset, val_dataset, num_classes, num_epochs=30,
 
     torch.save(model.state_dict(), 'unet_floorplan.pth')
     return model
+
